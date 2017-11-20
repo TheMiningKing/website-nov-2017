@@ -32,7 +32,9 @@ b, strong{
     font-weight: 500;
 }
 .navbar-brand {
-    font-weight: 700;
+    font-family: 'Faster One', cursive;
+    font-size: 2em;
+    /* font-weight: 700; */
 }
 .navbar-inverse .navbar-nav .nav-link, .navbar .navbar-brand, .navbar-toggler span {
     color: rgba(255,255,255,.8);
@@ -123,9 +125,9 @@ section{
     background:-moz-linear-gradient(-45deg, #ffb300 33%, transparent 0%),
         linear-gradient(-45deg, #ffd700 67%, transparent 33%),
         linear-gradient(-45deg, #ffb300 100%, transparent 67%);
-    background:linear-gradient(-45deg, #ffe34c 33%, transparent 0%),
+    background:linear-gradient(-45deg, #bf9b30 33%, transparent 0%),
         linear-gradient(-45deg, #a67c00 67%, transparent 33%),
-        linear-gradient(-45deg, #ffe34c 100%, transparent 67%);
+        linear-gradient(-45deg, #bf9b30 100%, transparent 67%);
 }
 .bg-alt {
     background-color: #fff;

@@ -27,7 +27,7 @@ $(function () {
         var secondFeature = $('#features').offset().top;
         var scroll = $(window).scrollTop();
         if (scroll >= 150) {
-            $('.sticky-navigation').css({"background-color": '#ffd700'});
+            $('.sticky-navigation').css({"background-color": '#a67c00'});
         } else {
             $('.sticky-navigation').css({"background-color": 'transparent'});
         }
