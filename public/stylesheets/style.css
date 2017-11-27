@@ -343,7 +343,6 @@ button {
 /**
  * Message form
  */
-/**
 form {
   margin: auto;
   width: 100%;
@@ -352,6 +351,11 @@ form {
   margin-bottom: 1em;
 }
 
+.bg-footer fieldset label {
+  color: #8d8d8d;
+}
+
+/**
 @media all and (min-width: 900px) {
   form {
     width: 50%;
@@ -374,17 +378,19 @@ fieldset {
 fieldset label {
   display: block;
 }
+*/
 
-fieldset input,
-fieldset textarea {
+fieldset input {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
 }
 
 fieldset button {
+  margin-top: 1em;
   float: right;
 }
+/*
 
 /**
  * Alerts
