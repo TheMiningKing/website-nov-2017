@@ -1,9 +1,27 @@
-nginx:                         
-  image: nginx                 
-  restart: always
-  environment:                 
+#version: '3'
+#services:
+
+node:
+  build: .
+  restart: unless-stopped
+  ports:
+    - 3000
+  environment:
+    - NODE_ENV=production
     - VIRTUAL_HOST=theminingking.com
     - LETSENCRYPT_HOST=theminingking.com
     - LETSENCRYPT_EMAIL=daniel@capitolhill.ca
-  volumes:                     
-    - ./:/usr/share/nginx/html 
+  volumes:
+    - .:/home/node
+    - /home/node/node_modules
+  links:
+    - redis
+redis:
+  restart: unless-stopped
+  image: redis
+#  command: redis-server
+
+#networks:
+#  default:
+#    external:
+#      name: nginx-proxy
