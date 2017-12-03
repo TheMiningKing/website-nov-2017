@@ -83,9 +83,21 @@
                           <h2>Pool Testers</h2>
                           <hr />
                           <img src="img/ETH.svg" alt="Ether">
-                          <h2> reward</h2>
+                          <h2>reward</h2>
                           <hr />
-                          <p>Calgary and area miners sign up below</p>
+                          <p>Ethereum</p>
+                          <p class="mt-5">
+                            <form action="/signup" method="post">
+                              <input type="hidden" name="message" value="Send me info about the Calgary-based ether mining pool"</textarea>
+                              <fieldset>
+                                <label for="email">Calgary and area miners sign up below</label>
+                                <input name="email" type="email" placeholder="yourname@example.com" value='<%= email %>'>
+                              </fieldset>
+                              <fieldset>
+                                <button id='send-email-button-1' class='btn btn-primary mr-2 mb-2' type='submit'>Sign up</button>
+                              </fieldset>
+                            </form>
+                          </p>
                         </div>
                         <!--
                         <h2 class="pt-4">Custom-built <b class="text-primary-light">Crypto Mining Rigs </b></h2>
@@ -100,18 +112,7 @@
                           <!--email signup errors -->
                           <%- include partials/messages.ejs %>
                         </p>
-                        <p class="mt-5">
-                          <form action="/signup" method="post">
-                            <input type="hidden" name="message" value="Send me info about the Calgary-based ether mining pool"</textarea>
-                            <fieldset>
-                              <label for="email">Mining pool testers sign up here:</label>
-                              <input name="email" type="email" placeholder="yourname@example.com" value='<%= email %>'>
-                            </fieldset>
-                            <fieldset>
-                              <button id='send-email-button-1' class='btn btn-primary mr-2 mb-2' type='submit'>Sign up</button>
-                            </fieldset>
-                          </form>
-                        </p>
+
                     </div>
                 </div>
                 <div class="row d-md-flex brand">
