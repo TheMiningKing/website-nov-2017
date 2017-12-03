@@ -37,13 +37,15 @@ router.post('/signup', (req, res, next) => {
                                    message: req.body.message });
     }
  
-    // Send email to lead
     let leadOptions = {
       to: req.body.email,
       from: process.env.FROM,
-      subject: 'Howdy from the Mining King!',
-      text: `You are now receiving mining news and deals in the Calgary area. Reply with 'unsubscribe' to be removed.`
+      subject: 'Message received!',
+      text: `Howdy! I'll get back to y'all right quick!
+             ---------- 
+             ${req.body.message}`
     };
+
     mailer.transporter.sendMail(leadOptions, (error, info) => {
       if (error) {
         return res.render('index', { messages: { error: error },

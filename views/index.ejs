@@ -78,6 +78,16 @@
                         <img class="img-fluid mx-auto d-block" src="img/mining-king.svg"/>
                     </div>
                     <div class="col-md-6 col-sm-12 text-white wow fadeIn">
+                        <div class="west">
+                          <h1>Wanted</h1>
+                          <h2>Pool Testers</h2>
+                          <hr />
+                          <img src="img/ETH.svg" alt="Ether">
+                          <h2> reward</h2>
+                          <hr />
+                          <p>Calgary and area miners sign up below</p>
+                        </div>
+                        <!--
                         <h2 class="pt-4">Custom-built <b class="text-primary-light">Crypto Mining Rigs </b></h2>
                         <p class="mt-5">
                             Locally manufactured with cutting-edge components, The Mining King will get you invested in cryptocurrencies. Specializing in Ethereum. Serving Calgary and area.
@@ -85,19 +95,20 @@
                         <p class="mt-5">
                             <a href="#pricing" class="btn btn-primary mr-2 mb-2 page-scroll">Buy Now</a>
                         </p>
+                        -->
                         <p class="mt-5">
                           <!--email signup errors -->
                           <%- include partials/messages.ejs %>
                         </p>
                         <p class="mt-5">
                           <form action="/signup" method="post">
-                            <input type="hidden" name="message" value="Please add me to your email list"</textarea>
+                            <input type="hidden" name="message" value="Send me info about the Calgary-based ether mining pool"</textarea>
                             <fieldset>
-                              <label for="email">Join the email list for mining news and local deals</label>
+                              <label for="email">Mining pool testers sign up here:</label>
                               <input name="email" type="email" placeholder="yourname@example.com" value='<%= email %>'>
                             </fieldset>
                             <fieldset>
-                              <button id='send-email-button-1' class='btn btn-primary mr-2 mb-2' type='submit'>Subscribe</button>
+                              <button id='send-email-button-1' class='btn btn-primary mr-2 mb-2' type='submit'>Sign up</button>
                             </fieldset>
                           </form>
                         </p>
@@ -340,13 +351,16 @@
                     <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
                         <h1>The Mining King</h1>
                         <form action="/signup" method="post">
-                          <input type="hidden" name="message" value="Please add me to your email list"</textarea>
                           <fieldset>
-                            <label for="email">Join the email list for mining news and local deals</label>
+                            <label for="email">Have a crypto question for the Mining King?</label>
                             <input name="email" type="email" placeholder="yourname@example.com" value='<%= email %>'>
                           </fieldset>
                           <fieldset>
-                            <button id='send-email-button-2' class='btn btn-primary mr-2 mb-2' type='submit'>Subscribe</button>
+                            <label for="message"></label>
+                            <textarea name='message' rows='5' placeholder='Dear Mining King...'><%= message %></textarea>
+                          </fieldset>
+                          <fieldset>
+                            <button id='send-email-button-2' class='btn btn-primary mr-2 mb-2' type='submit'>Send</button>
                           </fieldset>
                         </form>
                         <p class="pt-2 text-muted">
