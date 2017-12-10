@@ -1,10 +1,7 @@
-email-form-promo
-================
+mining-king-promo-nov-2017
+==========================
 
-This is a simple email-signup template. It is intended for basic company
-promotional pages intending to collect emails from potential leads. I was
-motivated to build this project because my old Sinatra-based, Docker-deployed
-methodology has fallen victim to time and progress.
+This is based on the `email-form-promo` email-signup template. It's also a `hexo` blog.
 
 # Setup
 
@@ -44,5 +41,21 @@ TITLE="Email Form Promo"
 CONTACT=you@example.com
 FROM=noreply@example.com
 PASSWORD=
+```
+
+# hexo
+
+## Build static static
+
+```
+cd blog
+../node_modules/hexo/bin/hexo generate
+```
+
+## Create new post
+
+```
+cd blog
+../node_modules/hexo/bin/hexo new post "Post title"
 ```
 
