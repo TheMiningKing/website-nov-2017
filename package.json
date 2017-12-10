@@ -21,16 +21,7 @@
     "express-session": "^1.15.3",
     "morgan": "~1.8.1",
     "nodemailer": "^4.0.1",
-    "serve-favicon": "~2.4.2",
-    "hexo": "^3.1.0",
-    "hexo-generator-archive": "^0.1.2",
-    "hexo-generator-category": "^0.1.2",
-    "hexo-generator-index": "^0.1.2",
-    "hexo-generator-tag": "^0.1.1",
-    "hexo-renderer-ejs": "^0.1.0",
-    "hexo-renderer-stylus": "^0.3.0",
-    "hexo-renderer-marked": "^0.2.4",
-    "hexo-server": "^0.1.2"
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "jasmine": "^2.6.0",
