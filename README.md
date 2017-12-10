@@ -43,6 +43,10 @@ FROM=noreply@example.com
 PASSWORD=
 ```
 
+## sitemap.xml
+
+The blog and the promo page have their own `sitemap.xml` files. If the promo page is updated, be sure to update the file in `public/`. The blog file is generated automatically and is located in `public/blog`.
+
 # hexo
 
 `hexo` has its own package dependencies, which need to be installed:
