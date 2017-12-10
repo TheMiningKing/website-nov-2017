@@ -2,3 +2,4 @@
 node_modules
 .env
 public/blog
+db.json
