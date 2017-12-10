@@ -45,17 +45,24 @@ PASSWORD=
 
 # hexo
 
-## Build static static
+`hexo` has its own package dependencies, which need to be installed:
 
 ```
 cd blog
-../node_modules/hexo/bin/hexo generate
+npm install
+```
+
+All `hexo` operations need to be performed within the `blog/` directory.
+
+## Build static static
+
+```
+./node_modules/hexo/bin/hexo generate
 ```
 
 ## Create new post
 
 ```
-cd blog
-../node_modules/hexo/bin/hexo new post "Post title"
+./node_modules/hexo/bin/hexo new post "Post title"
 ```
 
