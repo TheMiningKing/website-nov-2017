@@ -64,7 +64,8 @@ To sign up for any exchange service, you'll need to provide government ID, proof
 
 Sure thing, Grandma!
 
-
 {% asset_img 6-gpu-frame-partially-assembled.jpg "6 GPU aluminum frame. Partially assembled" %}
 
+{% asset_img complete-frame.jpg "Completed aluminum and wood frame" %}
 
+{% asset_img no-gpus-yet.jpg "Main computer components installed. No GPUs yet." %}
