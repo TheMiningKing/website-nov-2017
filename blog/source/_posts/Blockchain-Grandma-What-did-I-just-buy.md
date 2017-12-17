@@ -64,8 +64,16 @@ To sign up for any exchange service, you'll need to provide government ID, proof
 
 Sure thing, Grandma!
 
-{% asset_img 6-gpu-frame-partially-assembled.jpg "6 GPU aluminum frame. Partially assembled" %}
+{% asset_img 0-humble-beginings.jpg "The top of the aluminum rig frame" %}
 
-{% asset_img complete-frame.jpg "Completed aluminum and wood frame" %}
+{% asset_img 1-frame-and-slats.jpg "The wood part anchors the computing components" %}
 
-{% asset_img no-gpus-yet.jpg "Main computer components installed. No GPUs yet." %}
+{% asset_img 2-frame-assembled.jpg "Mining frame skeleton of aluminum and wood" %}
+
+{% asset_img 3-motherboard-psu.jpg "The motherboard and power supply" %}
+
+{% asset_img 4-gpus.jpg "GPUs go on top" %}
+
+{% asset_img 5-wires.jpg "All wired up and waiting to be switched on" %}
+
+{% asset_img 6-mining.jpg "The Bula Ethereum Rig in action" %}
