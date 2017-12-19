@@ -6,66 +6,28 @@ tags:
 
 The _Bula_ rig officially commenced mining Ethereum at 19:27 MST. It is an analog of the [Aloha Ethereum mining rig](/blog/2017/11/09/Ethereum-Mining-Rig-Prototyping-and-Market-Investigation/).
 
-The hardware and software are playing nice together, but hashrates are underwhelming (108 MH/S). I suspect I'll need to tinker a bit with the software.
+The hardware and software are playing nice together, but hashrates are underwhelming. Each RX580 is getting about 18 MH/s (108 MH/s total). I'll need to tinker a bit with the software and firmware.
 
-Getting the Radeon RX580 GPUs to work with the Asus Prime 7270-A motherboard was a bit tricky. The steps I took to debug are documented here.
+What follows is the story of what it took to get the Radeon RX580 GPUs to work with the Asus Prime 7270-A motherboard. This is meant to serve as notes to my future self, and anyone else who might need a bit of help. See the _Appendix_ for system specs and debugging tips.
 
-But first, some broad hardware/software specs...
+## Asus motherboard problems!
 
-## Hardware Specs 
+The Asus Z270-A motherboard caused me nothing but trouble. It turned a 20 hour job into a 40 hour job. Live and learn for next time...
 
-- 6 Asus Radeon RX580 Dual 8GB GPUs
-- Intel Core i3 7350K 4.2GHz 4MB
-- Asus Prime Z270-A ATX mobo
-- 4GB 2133MHz DDR4 RAM
-- Intel BXTS15A Heat Sink LGA 1151
-- Corsair AX2100i 1200W Digital ATX PSU
-- StarTech Replacement Case Wire Kit
-- Kingston UV400 SSD 2.5in 120GB
-- 6 Elite PCIEx1-x16 ext USB3 Kit
-
-Raymond and the good folk over at [Memory Express](https://www.memoryexpress.com/) in Dalhousie put the parts list together and mounted the CPU to the motherboard.
-
-### Case hardware specs
-
-- 20 feet of 1.25x1.25x1.25" aluminum angle bracket
-- 1x2x8' spruce (I think)
-- Myriad screws, washers, fasteners...
-
-[Sign up](https://theminingking.com/#contact) to receive Mining News and I'll compile a detailed, itemized list... maybe even a 6 GPU frame blueprint too!
-
-### The total in fiat: $4,000.35 CDN
-
-## Software
-
-I don't pay for software (nor do I steal it).
-
-- Ubuntu Server 16.04.3
-- Linux kernel v4.14
-- AMDGPU-PRO 17.40
-- `ethereum` (via `apt`)
-- [ethminer](https://github.com/ethereum-mining/ethminer)
-
-## Motherboard problems!
-
-The Asus Z270-A motherboard caused me nothing but trouble. It turned a 20 hour job into a 30 hour job. Live and learn for next time...
-
-Basically, I plugged in my hand-crafted bootable USB to install all the necessary software and I get messages like:
+Having assembled the rig and done some light testing, I plugged in my hand-crafted bootable USB to install all the necessary software. For this I was rewarded with messages like:
 
 ```
 PCIe Bus Error severity=Corrected, type=Physical layer, id=00e0
 ```
 
-Or this helpful message will flash by in the blink of an eye:
+Or sometimes this helpful info would flash by in the blink of an eye:
 
 ```
 No suitable video mode found
 Booting in blind mode Ubuntu
 ```
 
-Half the time I couldn't even get into the BIOS because of some weird infighting between the GPUs and the motherboard's onboard video controller. Even getting to the `grub` menu is hit-and-miss when all 6 GPUs are connected. During software deployment, I was constantly unplugging and replugging GPUs and the monitor. Thankfully, I think I worked through most of the kinks.
-
-For future me, be mindful of the following things...
+Half the time I couldn't even get into the BIOS because of some weird infighting between the GPUs and the motherboard's onboard video controller. Even getting to the `grub` menu is hit-and-miss when all 6 GPUs are connected. During software deployment, I was constantly unplugging and replugging GPUs and the monitor.
 
 ### Some background/debugging tips
 
@@ -73,27 +35,58 @@ I typically attach my GPUs in waves (power off, of course). I start with one GPU
 
 Following this approach I discovered that I can't get into the BIOS if I have all six GPUs plugged in. As such, it's best to start with one.
 
-{% asset_img mind-the-gap.jpg "PCIEX16_1 gives no love" %}
+### Symptoms
 
-Also, don't use the `PCIEX16_1` slot at all. Nothing seems to work in there, and I don't know why yet.
+Basically, the following symptoms indicate a misconfigured (or unconfigured BIOS):
+
+- If you connect more than 4 RX580 GPUs, you don't see the BIOS splash screen at boot.
+- Though 6 GPUs may be connected, the hashrate of at least one will drop to zero after about 25 minutes
+
+I discovered through systematic trial-and-error that with 4 GPUs connected in the short PCIe slots, everything works. It was always the cards connected to the longer PCIEx16 slots that would fail.
+
+{% asset_img mind-the-gap.jpg "PCIEX16_1 gives no love" %}
 
 ### Configure the BIOS
 
-Getting four GPUs to work together is fairly simple. Getting all six Radeon RX580 GPUs to work with the Asus Prime 7270-A motherboard requires configuring the BIOS.
+Getting four GPUs to work together is fairly simple. Getting all six Radeon RX580 GPUs to work with the Asus Prime 7270-A motherboard requires configuring the BIOS (remember, you can only have 4 GPUs plugged in for this to work for some reason).
 
-Once inside, make the following changes:
+[This excellent YouTube video](https://www.youtube.com/watch?v=4cd1qoTAHmA) shows you the configuration steps from begining to end. They are summarized below.
+
+#### Miscellaneous Configuration
+
+All configuration steps start by entering the _Advanced_ menu by pressing _F7_ on the keyboard. Find the _Platform Miscellaneous Configuration_ menu and disable everything. These instructions are summarized thusly:
+
+- F7 -> Advanced -> Platform Misc Configuration: _Disable_ everything
+
+Obviously, you don't need to start from scratch every time.
 
 #### Update the firmware
 
-Find _EZ Flash 3 Update_ under _Advanced -> Tools_. Choose the appropriate method and follow the prompts.
+Following the convention established in the previous section:
 
-#### Enable _Above 4G Decoding_
- 
-It's _disabled_ by default. Go to _Advanced -> Boot_.
+- F7 -> Advanced -> Tool -> ASUS EZ Flassh 3 Utility: _BIOS update_
 
-#### Disable _Fast Boot_
+You'll reboot after the update is complete. Watch the video to see how it works.
 
-Good things take time, I guess... (_Advanced -> My Favourites_)
+#### Configure PCIe slots
+
+Most of these settings are set to _Auto_ by default:
+
+- F7 -> Advanced -> System Agent Configuration -> DMI/OPI Configuration -> DMI Max Link Speed: _Gen2_
+
+Go up a menu to get into _PEG Port Configuration_:
+
+- F7 -> Advanced -> System Agent Configuration -> PEG Port Configuration -> PCIEX16_1 Link Speed: _Gen2_
+- F7 -> Advanced -> System Agent Configuration -> PEG Port Configuration -> PCIEX16_2 Link Speed: _Gen2_
+- F7 -> Advanced -> System Agent Configuration -> PEG Port Configuration -> PCIe Spread Spectrum Clocking: _Auto_
+
+And then:
+
+- F7 -> Advanced -> PCH Configuration -> PCI Express Configuration -> PCIe Speed: _Gen2_
+
+Finally: 
+
+- F7 -> Advanced -> Boot -> Above 4G Decoding: _Enabled_
 
 ### Edit the default Grub stuff
 
@@ -123,11 +116,60 @@ You'll have to run `sudo update-grub` again and reboot.
 
 No one said mining is easy.
 
-Having configured the BIOS and `grub`, start attaching RX580 GPUs to the Asus Z270-A motherboard one at a time (avoid the `PCIEX16_1` slot!!!).
+Having configured the BIOS and `grub`, start attaching RX580 GPUs to the Asus Z270-A motherboard one at a time. Power off before each new connection. Make sure the cards are talking with the motherboard by using the debugging commands in the Appendix.
+
+## Conclusion
+
+With all six GPUs connected, I still don't get the opportunity to enter the BIOS. I don't see the `grub` menu either. The rig boots, nonetheless.
+
+I'm pretty unhappy about the low hash rates I'm getting, but I'm glad everything's working... even if performance is degraded.
+
+Stay tuned...
+
+{% asset_img mining.jpg "Mining Ethereum slowly but surely" %}
+
+## Appendix
+
+### Hardware Specs 
+
+- 6 Asus Radeon RX580 Dual 8GB GPUs
+- Intel Core i3 7350K 4.2GHz 4MB
+- Asus Prime Z270-A ATX mobo
+- 4GB 2133MHz DDR4 RAM
+- Intel BXTS15A Heat Sink LGA 1151
+- Corsair AX2100i 1200W Digital ATX PSU
+- StarTech Replacement Case Wire Kit
+- Kingston UV400 SSD 2.5in 120GB
+- 6 Elite PCIEx1-x16 ext USB3 Kit
+
+Raymond and the good folk over at [Memory Express](https://www.memoryexpress.com/) in Dalhousie put the parts list together and mounted the CPU to the motherboard.
+
+#### Case hardware specs
+
+- 20 feet of 1.25x1.25x1.25" aluminum angle bracket
+- 1x2x8' spruce (I think)
+- Myriad screws, washers, fasteners...
+
+[Sign up](https://theminingking.com/#contact) to receive Mining News and I'll compile a detailed, itemized list... maybe even a 6 GPU frame blueprint too!
+
+#### The total in fiat: $4,000.35 CDN
+
+### Software
+
+I don't pay for software (nor do I steal it).
+
+- Ubuntu Server 16.04.3
+- Linux kernel v4.14
+- AMDGPU-PRO 17.40
+- `ethereum` via `apt`
+- [ethminer](https://github.com/ethereum-mining/ethminer) from source
+
+
+### Debugging
 
 Reboot between installation and use these helpful commands to debug...
 
-### clinfo
+#### clinfo
 
 This one comes with the RX580's `AMDGPU-PRO` drivers:
 
@@ -135,7 +177,7 @@ This one comes with the RX580's `AMDGPU-PRO` drivers:
 /opt/amdgpu-pro/bin/clinfo
 ```
 
-### General Ubuntu info:
+#### General Ubuntu info:
 
 See what your GPUs look like to the OS:
 
@@ -149,12 +191,4 @@ This will show you any OS errors on boot:
 dmesg | grep -i gpu
 ```
 
-## Conclusion
 
-With all six GPUs connected, I still don't get the opportunity to enter the BIOS. I don't see the `grub` menu either. The rig boots, nonetheless.
-
-I'm pretty unhappy about the low hash rates I'm getting, but I'm glad everything's working... even if performance is degraded.
-
-Stay tuned...
-
-{% asset_img mining.jpg "Mining Ethereum slowly but surely" %}
