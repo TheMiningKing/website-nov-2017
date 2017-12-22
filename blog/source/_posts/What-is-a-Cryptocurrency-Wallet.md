@@ -42,9 +42,11 @@ There are also plenty of mobile apps that give nice, easy-to-use interfaces for 
 
 Whether you go online or download an app, be mindful of the information you are providing when unlocking your wallet. At a minimum, ask if a wallet application is _open source_. Closed-source software can easily be made to steal your private keys. Even if you don't understand how to read computer code, you should be suspicious of any vendor unwilling to show you how their software works.
 
-## So how do you do it?
+## So how do _you_ do it?
 
-I use [geth](https://github.com/ethereum/go-ethereum) on Ubuntu 16.04. Though the process that follows is for more advanced users, this is, at its root level, what your preferred Ethereum wallet application does...
+I use [geth](https://github.com/ethereum/go-ethereum) on Ubuntu 16.04.
+
+The process that follows is for more advanced users. It is presented here to show what your Ethereum wallet application is doing at a low level.
 
 First, from your home directory, create an Ethereum account (i.e., a wallet):
 
@@ -55,11 +57,11 @@ geth account new
 
 You will be asked for a passphrase. It should be a phrase sufficiently long, but easy for you to remember. For example, you might pick a line out of a book:
 
-_it was the best of times it was the blurst of times_
+- _it was the best of times it was the blurst of times_
 
 Or, you could list your favourite animals in order:
 
-_beefalo skink owl skunk hippo dung beetle platypus_
+- _beefalo skink owl skunk hippo dung beetle platypus_
 
 Once set, `geth` will create your _keyfile_. You can see it on your computer's hard drive by executing this:
 
@@ -76,7 +78,7 @@ drwx------ 4 miner miner 4096 Nov 14 13:46 ..
 -rw------- 1 miner miner  491 Nov 18 11:50 UTC--2017-11-18T18-50-36.909516860Z--05b40c95fc3f9c03a6cac78d359099acd78f2023
 ```
 
-That crazy long file starting with `UTC--` is your _keyfile_. It's contents look like this:
+That crazy long file starting with `UTC--` is your _keyfile_. Its contents look like this:
 
 ```
 {"address":"05b40c95fc3f9c03a6cac78d359099acd78f2023","crypto":{"cipher":"aes-128-ctr","ciphertext":"b16b282dfb7ba96ecbb0203b165223698a6011c9f7ec176efb73ed17ab9491d6","cipherparams":{"iv":"edcd3b46a1d9310cd54a368d56d1c91c"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"d19309c53e39b5e5ce07776ec3e97c0a3b0047f17556cf284693a42076104215"},"mac":"42f5bbfdc90015ac8058ff9fccbab8bad78af088548aebe4db6d4ce9b3532628"},"id":"16ebce77-5b67-43bc-a247-0b00eca479e0","version":3}
@@ -86,7 +88,7 @@ It's not nice to look at, but this is your wallet. It's also your _encrypted pri
 
 _Note_: you might recognize your wallet's public _address_ in this file, but you won't see its associated private key (it's encrypted, remember). `geth` makes it purposefully difficult to see your unencrypted private key. This is a good thing, because all you need to import and send money with a wallet application is the _keyfile_ and the _passphrase_ you use to unlock it. You can also use geth on the commandline, but that topic may be better left for another day.
 
-Here your passphrase is just as vital as your private key. Lose your passphrase, you cannot unlock your wallet.
+Here your passphrase is just as vital as your private key. If you lose your passphrase, you cannot unlock your wallet.
 
 ## Conclusion
 
@@ -97,5 +99,5 @@ When backing up your wallet, there are two things you need to protect:
 1. Your _keyfile_
 2. And your _passphrase_ or _public key_ (depending on how you created your wallet in the first place)
 
-Print it all to paper, laminate it, and bury it in a fireproof lockbox in the forest. 
+Print it all to paper, laminate it, and bury it in a fireproof lockbox in the forest.
 
