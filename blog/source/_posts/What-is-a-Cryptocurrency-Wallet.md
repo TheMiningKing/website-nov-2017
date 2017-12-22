@@ -20,7 +20,13 @@ Remember... the crypto wallet doesn't _contain_ anything. It's more like an _add
 
 In the case of Ethereum, the currency is called _ether_ (sometimes people pluralize it as _ethers_). Anyone who knows the address of your Ethereum wallet can send you ether. Feel free to post your public address everywhere!
 
-In the above case, the _public address_ you share is `0x05b40c95fc3f9c03a6cac78d359099acd78f2023`. Can you spot where I got it from?
+In the above case, the _public address_ you share is:
+
+```
+0x05b40c95fc3f9c03a6cac78d359099acd78f2023
+```
+
+Can you spot where I got it from?
 
 Receiving ether is easy. The trickiness is in sending it out from your wallet to another. For every public wallet address, there is a corresponding _private key_. The private key is what unlocks your wallet and allows you to send ether to another account.
 
@@ -44,7 +50,9 @@ If you lose your wallet, you lose all its ether too. There is no getting it back
 
 ## A paper wallet?
 
-Yes indeed. Your computer may crash, or your phone may get stolen. Print your wallet to paper and hide it somewhere good. Your wallet and its ether will exist as long as the Ethereum blockchain itself exists. It's worth it to have a paper backup hidden in a place safe from water, fire, and burglars.
+Yes indeed. Your computer may crash, or your phone may get stolen. Print your wallet to paper and hide it somewhere good. Your wallet and its ether will exist as long as the Ethereum blockchain itself exists.
+
+It's worth the effort to have a paper backup hidden in a place safe from water, fire, and burglars.
 
 ## So what's easiest for me?
 
@@ -64,7 +72,9 @@ There are also plenty of mobile apps that give nice, easy-to-use interfaces for 
 
 ### Open Source
 
-Whether you go online or download an app, be mindful of the information you are providing when unlocking your wallet. At a minimum, find out if a wallet application is _open source_. Closed-source software can easily be made to steal your private keys. Even if you don't understand how to read computer code, you should be suspicious of any vendor unwilling to show you how their software works.
+Whether you go online or download an app, be mindful of the information you are providing when unlocking your wallet. At a minimum, find out if a wallet application is _open source_. Closed-source software can easily be made to steal your private keys.
+
+Even if you don't understand how to read computer code, you should be suspicious of any vendor unwilling to show you how their software works.
 
 ## So how do _you_ do it?
 
@@ -74,7 +84,7 @@ The Mining King uses [geth](https://github.com/ethereum/go-ethereum) on Ubuntu 1
 
 If you can't make sense of what follows, just go to [MyEtherWallet](https://www.myetherwallet.com/) and set up your wallet there.
 
-The process that follows is for more advanced users. It is presented here to show what your Ethereum wallet application is doing at a low level.
+This process is for more advanced users. It is presented here to show what your Ethereum wallet application is doing at a low level.
 
 First, from your home directory, create an Ethereum account (i.e., a wallet):
 
@@ -114,7 +124,7 @@ That crazy long file starting with `UTC--` is your _keyfile_. Remember this mess
 
 It's not nice to look at, but this is your wallet. It's also your _encrypted private key_! This is one file you definitely want to back up and print out. 
 
-_Note_: you might recognize your wallet's public _address_ in this file, but you won't see its associated private key (it's encrypted, remember). `geth` makes it purposefully difficult to see your unencrypted private key. This is a good thing, because all you need to import and send money with a wallet application is the _keyfile_ and the _passphrase_ you use to unlock it. You can also use geth on the commandline, but that topic may be better left for another day.
+_Note_: you might recognize your wallet's public _address_ in this file, but you won't see its associated private key (it's encrypted, remember). `geth` makes it purposefully difficult to see your unencrypted private key. This is a good thing, because all you need to import and send money with a wallet application is the _keyfile_ and the _passphrase_ you use to unlock it. You can also use `geth` to unlock your wallet on the commandline, but that topic may be better left for another day.
 
 Here your passphrase is just as vital as your private key. If you lose your passphrase, you cannot unlock your wallet.
 
