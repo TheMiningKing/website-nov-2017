@@ -9,7 +9,7 @@ Bitcoin took a nosedive today. It's down around $12,000 CDN from where it was si
 
 Sounds like a good time to buy!
 
-It just so happens I've got a bit of Ether sitting in a [wallet](https://etherscan.io/address/0xd24def0856636050cf891befc0fa69ecf96c160b). I wonder how much Bitcoin I can get?
+It just so happens I've got a bit of ether sitting in a [wallet](https://etherscan.io/address/0xd24def0856636050cf891befc0fa69ecf96c160b). I wonder how much Bitcoin I can get?
 
 ## Open an account on a currency exchange
 
@@ -21,7 +21,7 @@ No matter where you sign up, you'll need to provide some identification.
 2. A recent utility bill
 3. And sometimes, a selfie holding your government ID
 
-I like Coinsquare, because it has a nice interface. But sadly, they don't let you fund your account with Ether, and their excuses for this inability are running pretty thin.
+I like Coinsquare, because it has a nice interface. But sadly, they don't let you fund your account with ether, and their excuses for this inability are running pretty thin.
 
 I eventually ended up at [QuadrigaCX](https://www.quadrigacx.com/). Like Coinsquare, they're based in Canada. Unlike Coinsquare, they've got their acts together when it comes to putting ether into your account.
 
@@ -39,7 +39,7 @@ If you mess up an address or an amount, you will never see your ether again. Sta
 
 ### Let's get started...
 
-When you're funding your QuadrigaCX account with Ether, you are provided with a destination wallet address. If you send ether to this address, it will be added to your QuadrigaCX account balance. I can learn a few things about this address by entering it at [etherscan.io](https://etherscan.io/address/0xf7a5a3c18e0f81d853874d404d20a1900037ccdb).
+When you're funding your QuadrigaCX account with ether, you are provided with a destination wallet address. If you send ether to this address, it will be added to your QuadrigaCX account balance. I can learn a few things about this address by entering it at [etherscan.io](https://etherscan.io/address/0xf7a5a3c18e0f81d853874d404d20a1900037ccdb).
 
 No matter what kind of wallet you're using, you're basically doing the same as what follows. Sending money from your wallet's address to a destination address (QuadrigaCX's wallet address, in this case). It's up to you to find a wallet you're comfortable with and use it correctly.
 
@@ -67,7 +67,7 @@ at block: 4779310 (Fri, 22 Dec 2017 16:31:07 MST)
 
 ### Finding my account balance
 
-I want to know how much Ether I have, so I type the following and hit _Enter_:
+I want to know how much ether I have, so I type the following and hit _Enter_:
 
 ```
 > web3.fromWei(eth.getBalance(eth.coinbase));
