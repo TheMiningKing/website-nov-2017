@@ -43,7 +43,7 @@ When you're funding your QuadrigaCX account with ether, you are provided with a 
 
 No matter what kind of wallet you're using, you're basically doing the same as what follows. Sending money from your wallet's address to a destination address (QuadrigaCX's wallet address, in this case). It's up to you to find a wallet you're comfortable with and use it correctly.
 
-I'm going to do the whole wallet thing the crazy computer programmer way. That is, on the Ubuntu 16.04 commandline with the [geth](https://github.com/ethereum/go-ethereum) Javascript console.
+I'm going to do the whole wallet thing the crazy computer programmer way. That is, on the Ubuntu 16.04 commandline with the [geth](https://github.com/ethereum/go-ethereum) Javascript console. Steps adapted from [here](http://blog.bradlucas.com/posts/2017-08-17-send-eth-from-geth-console/).
 
 I'm using a machine running an Ethereum node, so I want to attach to an existing `geth` process:
 
