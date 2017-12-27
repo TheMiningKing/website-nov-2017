@@ -64,7 +64,7 @@ Obviously, you don't need to start from scratch every time.
 
 Following the convention established in the previous section:
 
-- F7 -> Advanced -> Tool -> ASUS EZ Flassh 3 Utility: _BIOS update_
+- F7 -> Advanced -> Tool -> ASUS EZ Flash 3 Utility: _BIOS update_
 
 You'll reboot after the update is complete. Watch the video to see how it works.
 
