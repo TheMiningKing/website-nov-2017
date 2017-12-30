@@ -90,6 +90,12 @@ Finally:
 
 ### Edit the default Grub stuff
 
+*****************
+*CHECK THIS OUT!*
+
+A lot of this software stuff is locked down and automated. See details at [TheMiningKing/ethereum-miner-bula](https://github.com/TheMiningKing/ethereum-miner-bula).
+*****************
+
 With all that BIOS stuff out of the way, `grub`, our infuriating bootloader must also be configured.
 
 Again, with one (maybe two) GPUs plugged in, open the `/etc/default/grub` file with your favourite text editor. Find the line that starts with `GRUB_CMDLINE_LINUX_DEFAULT` and make it look like this:
@@ -137,7 +143,7 @@ Stay tuned...
 - Asus Prime Z270-A ATX mobo
 - 4GB 2133MHz DDR4 RAM
 - Intel BXTS15A Heat Sink LGA 1151
-- Corsair AX2100i 1200W Digital ATX PSU
+- Corsair AX1200i 1200W Digital ATX PSU
 - StarTech Replacement Case Wire Kit
 - Kingston UV400 SSD 2.5in 120GB
 - 6 Elite PCIEx1-x16 ext USB3 Kit
