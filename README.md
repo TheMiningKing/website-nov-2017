@@ -1,11 +1,13 @@
-mining-king-promo-nov-2017
-==========================
+website-nov-2017
+================
 
-This is based on the `email-form-promo` email-signup template. It's also a `hexo` blog.
+Preserved here for archival purposes. You can view the current deployment at [theminingking.com](https://theminingking.com).
+
+This is based on the [email-form-promo](https://github.com/RaphaelDeLaGhetto/email-form-promo) email-signup template. It's also a `hexo` blog.
 
 # Setup
 
-Clone to your local machine and install
+Clone to your local machine and install:
 
 ```
 npm install
