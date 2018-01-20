@@ -15,8 +15,9 @@ There are a few important things to consider when finding a home for your rig:
 1. Temperature
 2. Network connectivity
 3. Dust
+4. Amperage
 
-Ideally, your rig should be located in a cool, clean, low traffic, well-ventilated room with a wired internet connection. It is unwise to operate your rig in extremely low, or sub-zero temperatures.
+Ideally, your rig should be located in a cool, clean, low traffic, well-ventilated room with a wired internet connection. It is unwise to operate your rig in extremely low, or sub-zero temperatures. Also, be aware that a typical household circuit puts out 15 amps. You'll find out pretty quick if your rig exceeds the circuit's capacity (the breaker will trip). 
 
 For home-based miners, a clean basement storage room is ideal. Naturally, it must be equipped with outlets for both power and internet. Wireless connections to the Ethereum network have not been tested and as such, cannot be recommended. Place your rig on a stable surface off the floor and away from the the wall (10 cm clearance should be ample). This will help ensure adequate airflow and extend the life of your GPUs.
 
@@ -72,7 +73,7 @@ To bring this process to the foreground, execute `screen -x geth`. To return it 
 
 ## Choose a mining pool
 
-There are a bunch to choose from, and from what I've seen, most strive to be transparent and reputable. I like [EtheriumPool.co](https://ethereumpool.co/), and will use it for this example.
+There are a bunch to choose from, and from what I've seen, most strive to be transparent and reputable. [EtheriumPool.co](https://ethereumpool.co/) was the first one I tried, and will use it for this example.
 
 ## Connect to the pool
 
